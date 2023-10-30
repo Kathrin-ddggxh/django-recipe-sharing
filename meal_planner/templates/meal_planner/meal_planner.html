@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Meal Planner{% endblock %}
+
 
 {% block content %}
 <div class="container">
@@ -15,23 +17,23 @@
                     {{day}}
                 </button>
             </div>
-            <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse"
-                aria-labelledby="heading{{forloop.counter}}" data-bs-parent="#accordionExample">
-    
+            <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="heading{{forloop.counter}}"
+                data-bs-parent="#accordionExample">
+
                 <div class="d-flex flex-column align-items-center p-2">
                     <p>Add or Update Meals</p>
                     <a href="" class="btn btn-primary w-25 mb-2">Breakfast</a>
                     <a href="" class="btn btn-primary w-25 mb-2">Lunch</a>
                     <a href="" class="btn btn-primary w-25 mb-2">Dinner</a>
                 </div>
-    
+
                 <hr>
-    
+
                 <div class="accordion-body">
-                    {% for meal in meals %}
-    
-                    {% if meal.meal_date == day %}
-    
+                    {% for meal in meals %} 
+
+                    {% if meal.meal_date == day %} 
+
                     {% if meal.meal_type == 'breakfast' %}
                     <h2 class="text-center">Breakfast</h2>
                     <div class="meals">
@@ -46,7 +48,7 @@
                         </div>
                     </div>
                     {% endif %}
-    
+
                     {% if meal.meal_type == 'lunch' %}
                     <h2 class="text-center">Lunch</h2>
                     <div class="meals">
@@ -61,7 +63,7 @@
                         </div>
                     </div>
                     {% endif %}
-    
+
                     {% if meal.meal_type == 'dinner' %}
                     <h2 class="text-center">Dinner</h2>
                     <div class="meals">
@@ -76,9 +78,9 @@
                         </div>
                     </div>
                     {% endif %}
-    
+
                     {% endif %}
-    
+
                     {% endfor %}
                 </div>
             </div>

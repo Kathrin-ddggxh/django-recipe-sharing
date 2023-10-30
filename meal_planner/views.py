@@ -2,10 +2,17 @@ import datetime, calendar
 
 from django_reorder.reorder import reorder
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+from django.db.models import Q
 
 from .models import Meal
+from recipes.models import Recipe
+
+import random
 
 
 class MealPlanner(LoginRequiredMixin, TemplateView):
